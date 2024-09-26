@@ -12,6 +12,7 @@ MaxIter <- 1E4
 nobs <- 1000
 # set.seed(666)
 Y <- COMPoissonReg::rcmp(n = nobs, lambda = Mu, nu = Nu)
+x11(width = 8, height = 6)
 hist(Y, probability = TRUE)
 
 cY <- compress_counts(Y)
