@@ -42,9 +42,9 @@ generated quantities {
   real rel_diff_brms = robust_difference(true_value, lZ_brms[1], 1);
   real rel_diff_brms_bulk = robust_difference(true_value, lZ_brms_bulk[1], 1);
   // Recording whether the target error was achieved
-  int getItRight_asymp = (fabs(diff_asymp) < eps);
-  int getItRight_threshold = (fabs(diff_threshold) < eps);
-  int getItRight_errorBounding = (fabs(diff_errorBounding) < eps);
-  int getItRight_brms = (fabs(diff_brms) < eps);
-  int getItRight_brms_bulk = (fabs(diff_brms_bulk) < eps);
+  int getItRight_asymp = (abs(diff_asymp) < eps);
+  int getItRight_threshold = (abs(diff_threshold) < eps);
+  int getItRight_errorBounding = (abs(diff_errorBounding) < eps);
+  int getItRight_brms = (abs(diff_brms) < eps);
+  int getItRight_brms_bulk = (abs(diff_brms_bulk) < eps);
 }
