@@ -17,17 +17,17 @@ data{
   real true_value;
 }
 transformed data {
-  real x_r[0];
-  int x_i[0];
+  array[0] real x_r;
+  array[0] int x_i;
 }
 generated quantities {
   // Computing the (log) normalising constant
   real lZ_asymp = log_Z_COMP_Asymp(log_mu, nu);
-  real lZ_threshold[2] = log_Z_COMP_Threshold(log_mu, nu, eps, M);
-  real lZ_errorBounding[2] = infiniteErrorBoundingPairs({log_mu, nu}, eps, M,
+  array[2] real lZ_threshold = log_Z_COMP_Threshold(log_mu, nu, eps, M);
+  array[2] real lZ_errorBounding = infiniteErrorBoundingPairs({log_mu, nu}, eps, M,
                                                                     log(0), 0);
-  real lZ_brms[2] = log_Z_COMP_brms(log_mu, nu, eps, M);
-  real lZ_brms_bulk[2] = log_Z_COMP_brms_bulk(log_mu, nu, eps, M);
+  array[2] real lZ_brms = log_Z_COMP_brms(log_mu, nu, eps, M);
+  array[2] real lZ_brms_bulk = log_Z_COMP_brms_bulk(log_mu, nu, eps, M);
   real lZ_True = true_value;
   // Computing absolute differences (in natural space)
   real diff_asymp = robust_difference(true_value, lZ_asymp, 0);

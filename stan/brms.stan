@@ -1,6 +1,6 @@
 /* Modified brms implementation with bug fixes and a bit of streamlining. Keeps the 'batch' approach */
 // Taken from https://github.com/paul-buerkner/brms/blob/master/inst/chunks/fun_com_poisson.stan
-real[] log_Z_COMP_brms(real log_mu, real nu, real eps, int M) {
+array[] real log_Z_COMP_brms(real log_mu, real nu, real eps, int M) {
   real log_Z;
   int k = 2;
   real leps = log(eps);
