@@ -1,7 +1,7 @@
 // Sum-To-Threshold inifinite sum algorithm
 // Requires definition of logFunction with two arguments:
 // int k and real[] parameters
-real[] infiniteSumToCap(real[] p, int Nmax, int maxIter, int n0) {
+array[] real infiniteSumToCap(array[] real p, int Nmax, int maxIter, int n0) {
   vector[maxIter + 1] storeVal;
   int n = 2;
   int n0_ = n0;
