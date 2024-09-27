@@ -4,8 +4,8 @@ functions{
 }
 data{
   int<lower=0> K;
-  int<lower=0> n[K];
-  int<lower=0> y[K];
+  array[K] int<lower=0> n;
+  array[K] int<lower=0> y;
   int<lower=0> N;
   real<lower=0> s_mu;
   real<lower=0> r_mu;
@@ -19,7 +19,7 @@ parameters{
 }
 transformed parameters{
   real log_mu = log(mu);
-  real log_norm_const[2] = log_Z_COMP_brms2(log_mu, nu, eps, M);
+  array[2] real log_norm_const = log_Z_COMP_brms2(log_mu, nu, eps, M);
 }
 model{
   mu ~ gamma(s_mu, r_mu);
