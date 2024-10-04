@@ -4,8 +4,8 @@ functions{
 }
 data{
   int<lower=0> K;
-  int<lower=0> n[K];
-  int<lower=0> y[K];
+  array[K] int<lower=0> n;
+  array[K] int<lower=0> y;
   int<lower=0> N;
   real<lower=0> s_mu;
   real<lower=0> r_mu;
@@ -20,7 +20,7 @@ parameters{
 }
 transformed parameters{
   real log_mu = log(mu);
-  real log_norm_const[2] = infiniteBatches({log_mu, nu}, batchSize, eps, M, 0);
+  array[2] real log_norm_const = infiniteBatches({log_mu, nu}, batchSize, eps, M, 0);
 }
 model{
   mu ~ gamma(s_mu, r_mu);
