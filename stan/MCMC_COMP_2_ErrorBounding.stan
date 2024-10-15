@@ -14,16 +14,13 @@ data{
   real<lower=0> eps;
   int<lower=0> M;
 }
-transformed data{
-  real logL = log(0);
-}
 parameters{
   real<lower=0> mu;
   real<lower=0> nu;
 }
 transformed parameters{
   real log_mu = log(mu);
-  array[2] real log_norm_const = infiniteErrorBoundingPairs({log_mu, nu}, eps, M, logL, 0);
+  array[2] real log_norm_const = infiniteErrorBoundingPairs({log_mu, nu}, eps, M, 0);
 }
 model{
   mu ~ gamma(s_mu, r_mu);
