@@ -15,6 +15,6 @@ array[] real log_Z_COMP_EB(real log_mu, real nu, real eps, int M) {
     reject("nu must be finite");
   }
   return(
-    infiniteErrorBoundingPairs({log_mu, nu}, eps, M, log(0), 0)
+    infiniteErrorBoundingPairs({log_mu, nu}, eps, M, 0)
   );
 }
